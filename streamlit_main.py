@@ -127,7 +127,7 @@ def save_uploaded_file(directory, file):
 
 st.title("FashionMNIST")
 
-st.file_uploader("이미지를 업로드 하세요", type=['png','jpg','jpeg'])  # 로컬에서 파일 업로드 가능 
+img_file=st.file_uploader("이미지를 업로드 하세요", type=['png','jpg','jpeg'])  # 로컬에서 파일 업로드 가능 
 
 if img_file: # 업로드된 파일이 있다면
     save_uploaded_file('images', img_file) # images 디렉토리 밑에 파일 저장 
