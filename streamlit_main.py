@@ -1,9 +1,9 @@
 import streamlit as st
 import joblib
+import torch
 from torch import nn
 import torchvision.transforms as transforms
-import os, json 
-
+import os, json
 
 class MyCNNModel(nn.Module):
 
@@ -118,7 +118,3 @@ transform = transforms.Compose([
 
 
 st.title("FashionMNIST")
-
-
-
-
