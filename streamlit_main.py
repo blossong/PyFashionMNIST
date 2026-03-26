@@ -116,7 +116,19 @@ transform = transforms.Compose([
     transforms.Normalize(mean=transform_config["mean"], std=transform_config["std"])
 ])
 
+# streamlit cloud에 저장하는 함수 정의
+def save_uploaded_file(directory, file):
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+    with open(os.path.join(directory, file.name), 'wb') as f:
+        f.write(file.getbuffer())
+    return st.success('파일 업로드 성공')
 
 st.title("FashionMNIST")
 
-st.file_uploader("이미지를 업로드 하세요", type=['png','jpg','jpeg'])
+st.file_uploader("이미지를 업로드 하세요", type=['png','jpg','jpeg'])  # 로컬에서 파일 업로드 가능 
+
+if img_file: # 업로드된 파일이 있다면
+    save_uploaded_file('images', img_file) # images 디렉토리 밑에 파일 저장 
+    st.image(f"images/{img_file.name}")  # 화면에 띄우기
