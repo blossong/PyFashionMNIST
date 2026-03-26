@@ -1,7 +1,7 @@
 import streamlit as st
 import joblib
 from torch import nn
-import torchvision.transform as transform
+import torchvision.transforms as transforms
 import os, json 
 
 
