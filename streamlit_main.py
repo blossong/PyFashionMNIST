@@ -132,3 +132,9 @@ img_file=st.file_uploader("이미지를 업로드 하세요", type=['png','jpg',
 if img_file: # 업로드된 파일이 있다면
     save_uploaded_file('images', img_file) # images 디렉토리 밑에 파일 저장 
     st.image(f"images/{img_file.name}")  # 화면에 띄우기
+
+    _, pred_class = predict(os.path.join('images', img_file.name), model, transform)
+    st.subheader(pred_class)
+    
+
+
